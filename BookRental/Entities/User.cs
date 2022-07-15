@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace BookRental.Entities
 {
-    public class UserLogin
+    public class User
     {
-        public string Login { get; set; }
+        public string  Name { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Email { get; set; }
+        public string Telefhone { get; set; }
         public string Key { get; set; }
+
     }
 }

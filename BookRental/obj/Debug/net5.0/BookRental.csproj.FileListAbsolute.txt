@@ -14,3 +14,19 @@ C:\Users\thudi\Downloads\Projetos\Intregadoras\2\BookRental\BookRental\obj\Debug
 C:\Users\thudi\Downloads\Projetos\Intregadoras\2\BookRental\BookRental\obj\Debug\net5.0\BookRental.pdb
 C:\Users\thudi\Downloads\Projetos\Intregadoras\2\BookRental\BookRental\obj\Debug\net5.0\BookRental.genruntimeconfig.cache
 C:\Users\thudi\Downloads\Projetos\Intregadoras\2\BookRental\BookRental\obj\Debug\net5.0\ref\BookRental.dll
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.AssemblyReference.cache
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.AssemblyInfoInputs.cache
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.AssemblyInfo.cs
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.CoreCompileInputs.cache
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.dll
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\refint\BookRental.dll
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.pdb
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.exe
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.deps.json
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.runtimeconfig.json
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.runtimeconfig.dev.json
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.dll
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\bin\Debug\net5.0\BookRental.pdb
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\BookRental.genruntimeconfig.cache
+C:\Users\Tulio\Documents\Cursos\Programaçao\Estudos - Anotaçoes das Aulas\BookRental\BookRental\obj\Debug\net5.0\ref\BookRental.dll
