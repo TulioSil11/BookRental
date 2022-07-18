@@ -18,11 +18,11 @@ namespace BookRental.Operations.Services
             login.Login = Console.ReadLine();
 
             Console.Write("Senha: ");
-            login.Key = Console.ReadLine();
+            login.Password = Console.ReadLine();
 
             foreach(var item in resultOfRestiter)
             {
-                if (login.Login == item.Email && login.Key == item.Key) return true;
+                if (login.Login == item.Email && login.Password == item.Password) return true;
                 
             }
 

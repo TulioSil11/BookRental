@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tulio\\Documents\\Cursos\\Programaçao\\Estudos - Anotaçoes das Aulas\\BookRental\\BookRental\\BookRental.csproj": {}
+    "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\BookRental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tulio\\Documents\\Cursos\\Programaçao\\Estudos - Anotaçoes das Aulas\\BookRental\\BookRental\\BookRental.csproj": {
+    "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\BookRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tulio\\Documents\\Cursos\\Programaçao\\Estudos - Anotaçoes das Aulas\\BookRental\\BookRental\\BookRental.csproj",
+        "projectUniqueName": "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\BookRental.csproj",
         "projectName": "BookRental",
-        "projectPath": "C:\\Users\\Tulio\\Documents\\Cursos\\Programaçao\\Estudos - Anotaçoes das Aulas\\BookRental\\BookRental\\BookRental.csproj",
-        "packagesPath": "C:\\Users\\Tulio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tulio\\Documents\\Cursos\\Programaçao\\Estudos - Anotaçoes das Aulas\\BookRental\\BookRental\\obj\\",
+        "projectPath": "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\BookRental.csproj",
+        "packagesPath": "C:\\Users\\thudi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tulio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thudi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

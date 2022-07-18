@@ -26,8 +26,8 @@ namespace BookRental.Operations
                 Console.Write("Telefhone: ");
                 user.Telefhone = Console.ReadLine();
 
-                Console.Write("Key: ");
-                user.Key = Console.ReadLine();
+                Console.Write("Password: ");
+                user.Password = Console.ReadLine();
 
                 return user;
             }

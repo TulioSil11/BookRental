@@ -12,7 +12,7 @@ namespace BookRental.Entities
         public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Telefhone { get; set; }
-        public string Key { get; set; }
+        public string Password { get; set; }
 
     }
 }

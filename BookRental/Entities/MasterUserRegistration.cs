@@ -13,6 +13,6 @@ namespace BookRental.Entities
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Senha { get; set; }
-        public int KeyMaster { get; set; }
+        public int PasswordMaster { get; set; }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using BookRental.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookRental.Operations.Services
 {
@@ -14,7 +10,7 @@ namespace BookRental.Operations.Services
 
             if (userInformation.Name == null || userInformation.DateOfBirth == null ||
                 userInformation.Email == null || userInformation.Telefhone == null ||
-                userInformation.Key == null)
+                userInformation.Password == null)
             {                
                 return false;
             }

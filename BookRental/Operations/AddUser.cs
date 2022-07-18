@@ -4,14 +4,14 @@ using BookRental.Entities;
 using BookRental.Operations.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace BookRental.Operations
 {
     public class RegisterANewUser
     {
-        public static List<User> Register()
+        public static User Register()
         {
-            List<User> DataOfUser = new List<User>();
 
             User Informations = TakeTheInforationsOfUserRegister.TakeInformations();
             bool validateInformation = ValidateInformationForRegister.ValidateInformations(Informations);
@@ -23,9 +23,8 @@ namespace BookRental.Operations
                 Register();
             }
 
-            DataOfUser.Add(Informations);
-
-            return DataOfUser;
+           
+            return Informations;
         }
     }
 }

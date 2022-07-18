@@ -9,6 +9,6 @@ namespace BookRental.Entities
     public class UserLogin
     {
         public string Login { get; set; }
-        public string Key { get; set; }
+        public string Password { get; set; }
     }
 }
