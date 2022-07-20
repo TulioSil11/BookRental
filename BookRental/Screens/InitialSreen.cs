@@ -20,8 +20,9 @@ namespace BookRental.Screens
             Console.WriteLine("|                                    |");
             Console.WriteLine("|Create a new acount                 |");
             Console.WriteLine("|                                    |");
-            Console.WriteLine("|Enter [L] to login and [C] to create|");
-            Console.WriteLine("|a new account                       |"); 
+            Console.WriteLine("|Enter [L] to login and              |");
+            Console.WriteLine("|[C] to create a new account         |");
+            Console.WriteLine("|                                    |");
             Console.WriteLine("--------------------------------------");
 
             string option = Console.ReadLine().ToUpper();

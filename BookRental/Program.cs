@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using BookRental.Entities;
-using BookRental.Operations;
-using BookRental.Operations.Services;
-using BookRental.Screens;
+﻿using BookRental.Screens;
 
 namespace BookRental
 {

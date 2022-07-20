@@ -23,7 +23,7 @@ namespace BookRental.Operations
                 Register();
             }
 
-           
+           string date = Informations.DateOfBirth.ToString("dd \" MMMM \" yyyy"); ;
             return Informations;
         }
     }
