@@ -1,4 +1,5 @@
 ﻿using BookRental.Entities;
+using BookRental.Models;
 using BookRental.Repository.Interfaces;
 using BookRental.Services.Interfaces;
 
@@ -15,14 +16,14 @@ namespace BookRental.Services
             _userRepository = userRepository;
         }
 
-        public Task<bool> InsertUserAsync(User user)
+        public Task<bool> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            return _userRepository.InsertUserAsync(user);
+            return _userRepository.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
         }
 
-        public Task<User> SearchUserAsync(User user)
+        public Task<IEnumerable<UserDto>> SearchUserAsync(string email, string senha)
         {
-            return _userRepository.SearchUserAsync(user);
+            return _userRepository.SearchUserAsync(email, senha);
         }
     }
 }

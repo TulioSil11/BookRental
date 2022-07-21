@@ -18,13 +18,13 @@ namespace BookRental.Operations.Services
             var ageWouldNeed = ValidadeDateOfUser.validateDateOfBirth(userInformation.DateOfBirth);
             if (!ageWouldNeed)
             {
-                Console.WriteLine("E necessario ser maior de idade para criar uma conta.");
+                Console.WriteLine("\nE necessario ser maior de idade para criar uma conta.");
                 return false;
             }
 
             if (!ValidateEmail.validateFormatOfEmail(userInformation.Email))
             {
-                Console.WriteLine("Email invalido.");
+                Console.WriteLine("\nEmail invalido.");
                 return false;
             }
 

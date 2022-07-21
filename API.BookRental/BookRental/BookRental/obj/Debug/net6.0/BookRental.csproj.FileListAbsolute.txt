@@ -60,3 +60,4 @@ C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\API.BookRental\Book
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\API.BookRental\BookRental\BookRental\bin\Debug\net6.0\MySql.Data.dll
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\API.BookRental\BookRental\BookRental\bin\Debug\net6.0\Ubiety.Dns.Core.dll
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\API.BookRental\BookRental\BookRental\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\API.BookRental\BookRental\BookRental\bin\Debug\net6.0\Newtonsoft.Json.dll

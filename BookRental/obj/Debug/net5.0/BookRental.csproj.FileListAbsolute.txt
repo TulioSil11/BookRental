@@ -46,3 +46,6 @@ C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debu
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debug\net5.0\BookRental.pdb
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\obj\Debug\net5.0\BookRental.genruntimeconfig.cache
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\obj\Debug\net5.0\ref\BookRental.dll
+C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debug\net5.0\RestSharp.dll
+C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.CopyComplete

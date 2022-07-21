@@ -2,15 +2,17 @@
 
 using BookRental.Entities;
 using BookRental.Operations.Services;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BookRental.Operations
 {
     public class RegisterANewUser
     {
-        public static User Register()
+        public static bool Register()
         {
 
             User Informations = TakeTheInforationsOfUserRegister.TakeInformations();
@@ -18,13 +20,22 @@ namespace BookRental.Operations
 
             if (!validateInformation)
             {
-                Console.WriteLine("Ouve um error com o cadastro do usuario.");
+                Console.WriteLine("\nOuve um error com o cadastro do usuario.\n");
 
                 Register();
             }
 
-           string date = Informations.DateOfBirth.ToString("dd \" MMMM \" yyyy"); ;
-            return Informations;
+           string date = Informations.DateOfBirth.ToString("dd/MM/yyyy");
+
+            var result = RegisterUserInDataBase.Register(Informations).ToString();
+            if (result == "true");
+            {
+                return true;
+            }
+            
+                return false;
+            
+
         }
     }
 }

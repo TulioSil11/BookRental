@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BookRental.Screens
@@ -35,7 +36,16 @@ namespace BookRental.Screens
             else
             {
                 Console.Clear();
-                RegisterANewUser.Register();
+                var registerUser = RegisterANewUser.Register();
+                if(registerUser == true)
+                {
+                    Console.WriteLine("\nUsuario cadastrado");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    SreenLogin();
+                }
+                Console.WriteLine("Ocorreu um erro. Tente novamente");
+                Thread.Sleep(3000);
                 Console.Clear();
                 SreenLogin();
             }

@@ -1,4 +1,5 @@
 ﻿using BookRental.Entities;
+using BookRental.Models;
 using BookRental.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,17 +18,17 @@ namespace BookRental.Controllers
 
 
         [HttpGet]
-        public async Task<bool> SearchUser(User user)
+        public async Task<IEnumerable<UserDto>> SearchUser(string email, string senha)
         {
-            var result = await _userServico.InsertUserAsync(user);
+            var result = await _userServico.SearchUserAsync(email, senha);
 
             return result;
         }
 
         [HttpPost]
-        public async Task<bool> InsertUser (User user)
+        public async Task<bool> InsertUser (string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            var result = await _userServico.InsertUserAsync(user);
+            var result = await _userServico.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
 
             return result;
         }
