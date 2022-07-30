@@ -1,8 +1,8 @@
-﻿using BookRental.Repository;
+﻿using BookRental.Models;
+using BookRental.Repository;
 using BookRental.Repository.Interfaces;
 using BookRental.Services;
 using BookRental.Services.Interfaces;
-using Integrador.Sefaz.Entidade;
 
 namespace BookRental.IoC
 {

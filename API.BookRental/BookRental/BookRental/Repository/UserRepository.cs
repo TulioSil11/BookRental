@@ -1,5 +1,4 @@
-﻿using BookRental.Entities;
-using BookRental.Models;
+﻿using BookRental.Models;
 using BookRental.Repository.Interfaces;
 using Dapper;
 using MySql.Data.MySqlClient;
@@ -19,9 +18,12 @@ namespace BookRental.Repository
             _connection = _config.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<bool> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        public async Task<InformationsOfRegisterToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            bool result = false;
+            InformationsOfRegisterToReturnDto result = new InformationsOfRegisterToReturnDto();
+
+            result.StatusOfRegister = false;
+
             try
             {
                 using (var connexao = new MySqlConnection(_connection))
@@ -31,26 +33,33 @@ namespace BookRental.Repository
                     stringBuilder.AppendLine("INSERT INTO book_rental.users(NAME_USER, EMAIL, DATE_OF_BIRTH,TELEFHONE,PASSWORD)");
                     stringBuilder.AppendLine($"VALUES ('{Name}', '{Email}', '{DateOfBirth}', '{Telefhone}', '{Password}');");
 
-                    var InsertCnpj = await connexao.QueryAsync<User>(stringBuilder.ToString());
+                    var InsertCnpj = await connexao.QueryAsync<UserDto>(stringBuilder.ToString());
 
-                    if(InsertCnpj != null)
+                    if (InsertCnpj != null)
                     {
-                        result = true;
+                        result.StatusOfRegister = true;
+                        result.Mensage = "Successful registration.";
+                        return result;
                     }
+                    result.StatusOfRegister = false;
+                    result.Mensage = "It was not possible to register. Try again later.";
+
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("An error occurred while entering the user");
+                result.StatusOfRegister = false;
+                result.Mensage = "It was not possible to register. Try again later.";
             }
 
             return result;
         }
 
-        public async Task<IEnumerable<UserDto>> SearchUserAsync(string email, string senha)
+        public async Task<UserDto> SearchUserAsync(string email, string password)
         {
-            IEnumerable<UserDto> Result = null;
+            UserDto SearchEmail = new UserDto();
+            UserDto Result = new UserDto();
             try
             {
                 using (var connexao = new MySqlConnection(_connection))
@@ -58,19 +67,45 @@ namespace BookRental.Repository
                     connexao.Open();
                     var stringBuilder = new System.Text.StringBuilder(84);
                     stringBuilder.AppendLine("SELECT * FROM book_rental.users");
-                    stringBuilder.AppendLine($"WHERE EMAIL = '{email}' AND PASSWORD = '{senha}'");
+                    stringBuilder.AppendLine($"WHERE EMAIL = '{email}'");
 
-                    Result = await connexao.QueryAsync<UserDto>(stringBuilder.ToString());
-                    
+                    SearchEmail = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder.ToString());
+
+                    if (SearchEmail != null)
+                    {
+                        var stringBuilder1 = new System.Text.StringBuilder(84);
+                        stringBuilder1.AppendLine("SELECT * FROM book_rental.users");
+                        stringBuilder1.AppendLine($"WHERE EMAIL = '{email}' AND PASSWORD = '{password}'");
+
+                        Result = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder1.ToString());
+
+                        if (Result != null)
+                        {
+                            Result.StatusOfSearch = true;
+                            Result.Mensage = "Successful login";
+
+                            return Result;
+                        }
+                        Result = new UserDto();
+                        Result.StatusOfSearch = false;
+                        Result.Mensage = "Password invalidates";
+                        return Result;
+
+                    }
+
+                    Result.StatusOfSearch = false;
+                    Result.Mensage = "Email invalidates";
+                    return Result;
+
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("An error occurred while entering the user");
             }
-         
-             return Result;
+
+            return Result;
         }
     }
 }

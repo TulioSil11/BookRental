@@ -4,20 +4,19 @@ namespace BookRental.Models
 {
     public class UserDto
     {
-        [JsonProperty("IdUsuario")]
         public int ID_USER { get; set; }
 
-        [JsonProperty("Name")]
-        public string NAME_USER { get; set; }
+        public string? NAME_USER { get; set; }
 
-        [JsonProperty("DateOfBirth")]
-        public string DATE_OF_BIRTH { get; set; }
+        public string? DATE_OF_BIRTH { get; set; }
 
-        [JsonProperty("Telefhone")]
-        public string TELEFHONE { get; set; }
+        public string? TELEFHONE { get; set; }
 
-        [JsonProperty("Password")]
-        public string PASSWORD { get; set; }
+        public string? PASSWORD { get; set; }
+
+        public bool? StatusOfSearch { get; set; }
+
+        public string? Mensage { get; set; }
 
     }
 }

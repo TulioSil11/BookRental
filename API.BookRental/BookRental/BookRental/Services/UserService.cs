@@ -1,7 +1,8 @@
-﻿using BookRental.Entities;
-using BookRental.Models;
+﻿using BookRental.Models;
 using BookRental.Repository.Interfaces;
 using BookRental.Services.Interfaces;
+using BookRental.Services.Validades;
+using BookRental.Utilies;
 
 namespace BookRental.Services
 {
@@ -16,14 +17,26 @@ namespace BookRental.Services
             _userRepository = userRepository;
         }
 
-        public Task<bool> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        public async Task<InformationsOfRegisterToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            return _userRepository.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
+            
+            var validatesInformations = ValidateInformationForRegister.ValidateInformations(Name, DateOfBirth, Email, Telefhone, Password);
+
+            if(!validatesInformations.StatusOfRegister)
+            {
+                return validatesInformations;
+            }
+
+            Password = MD5Hash.CalculaHash(Password);
+
+            return await _userRepository.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
         }
 
-        public Task<IEnumerable<UserDto>> SearchUserAsync(string email, string senha)
+        public Task<UserDto> SearchUserAsync(string email, string password)
         {
-            return _userRepository.SearchUserAsync(email, senha);
+            password = MD5Hash.CalculaHash(password);
+
+            return _userRepository.SearchUserAsync(email, password);
         }
     }
 }

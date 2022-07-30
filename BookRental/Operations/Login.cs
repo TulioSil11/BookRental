@@ -1,4 +1,5 @@
 ﻿using BookRental.Models;
+using BookRental.Utilies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,21 @@ namespace BookRental.Operations
 {
     public static class Login
     {
-        public static UserDto login()
+        public static async Task<UserDto> login()
         {
-            UserDto userToReturn = null;
             Console.Write("Email: ");
-            string email = Console.ReadLine();
+            string Email = Console.ReadLine();
 
             Console.Write("Password: ");
-            string password = Console.ReadLine();
+            string Password = Console.ReadLine();
 
-            var result = LoginInDataBase.LoginAsync(email, password);
-                
-                
+            var Result = await LoginInDataBase.LoginAsync(Email, Password);  
 
+            Console.Clear();
+            Console.WriteLine(Result.Mensage);
+
+
+            return Result;
         }
     }
 }

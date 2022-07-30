@@ -10,46 +10,72 @@ namespace BookRental.Screens
 {
     public static class InitialSreen
     {
-        public static void SreenLogin()
+        public static async Task SreenLogin()
         {
             Console.WriteLine("--------------------------------------");
             Console.WriteLine("|                                    |");
             Console.WriteLine("|Login:                              |");
             Console.WriteLine("|                                    |");
-            Console.WriteLine("|                                    |");
             Console.WriteLine("| Or                                 |");
             Console.WriteLine("|                                    |");
             Console.WriteLine("|Create a new acount                 |");
             Console.WriteLine("|                                    |");
-            Console.WriteLine("|Enter [L] to login and              |");
+            Console.WriteLine("|Enter [L] to login,                 |");
+            Console.WriteLine("|                                    |");
             Console.WriteLine("|[C] to create a new account         |");
+            Console.WriteLine("|                                    |");
+            Console.WriteLine("|and [R]Recover password             |");
             Console.WriteLine("|                                    |");
             Console.WriteLine("--------------------------------------");
 
             string option = Console.ReadLine().ToUpper();
 
-            if (option == "L")
+            switch(option)
             {
-                Console.Clear();
-                Login.login();
-            }
-            else
-            {
-                Console.Clear();
-                var registerUser = RegisterANewUser.Register();
-                if(registerUser == true)
-                {
-                    Console.WriteLine("\nUsuario cadastrado");
+                case "L":
+                    Console.Clear();
+                    var login = await Login.login();
+
+                    if(!login.StatusOfSearch)
+                    {
+                        Thread.Sleep(4000);
+                        Console.Clear();
+
+                        await SreenLogin();
+                    }
+
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    Console.WriteLine("Chamar tela home");
+
+                break;
+
+                case "C":
+                    Console.Clear();
+                    var registerUser = await RegisterANewUser.Register();
+
                     Thread.Sleep(3000);
                     Console.Clear();
-                    SreenLogin();
-                }
-                Console.WriteLine("Ocorreu um erro. Tente novamente");
-                Thread.Sleep(3000);
-                Console.Clear();
-                SreenLogin();
-            }
 
+                    await SreenLogin();
+                break;
+
+                case "R":
+                    RecuperePassword.Recupere();
+                    Thread.Sleep(3000);
+                    Console.Clear();
+
+                    await SreenLogin();
+                break;
+
+                default:
+                    Console.WriteLine("Choose one of the options.");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    await SreenLogin();
+                break;
+
+            };          
 
         }
     }

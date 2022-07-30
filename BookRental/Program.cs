@@ -1,14 +1,13 @@
-﻿using BookRental.Screens;
+﻿using System.Threading.Tasks;
+using BookRental.Screens;
 
 namespace BookRental
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            InitialSreen.SreenLogin();
-            //List<User> resultOfRestiter = RegisterANewUser.Register();
-
+            await InitialSreen.SreenLogin();           
 
         }
     }

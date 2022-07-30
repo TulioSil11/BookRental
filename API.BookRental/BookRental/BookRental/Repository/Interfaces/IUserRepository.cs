@@ -1,11 +1,10 @@
-﻿using BookRental.Entities;
-using BookRental.Models;
+﻿using BookRental.Models;
 
 namespace BookRental.Repository.Interfaces
 {
     public interface IUserRepository
     {
-         Task<bool> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password);
-        Task<IEnumerable<UserDto>> SearchUserAsync(string email, string senha);
+        Task<InformationsOfRegisterToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password);
+        Task<UserDto> SearchUserAsync(string email, string password);
     }
 }

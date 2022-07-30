@@ -13,7 +13,7 @@ namespace BookRental.Operations
 
             try
             {
-                Console.WriteLine("Cadastro de novo usuario: ");
+                Console.WriteLine("Registration of new user: ");
                 Console.Write("Name: ");
                 user.Name = Console.ReadLine();
 
@@ -31,7 +31,7 @@ namespace BookRental.Operations
 
                 return user;
             }
-            catch (Exception ex)
+            catch 
             {
                 return user;
             }

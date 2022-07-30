@@ -1,7 +1,7 @@
-﻿namespace Integrador.Sefaz.Entidade
+﻿namespace BookRental.Models
 {
     public class Connection
     {
-        public string DefaultConnection { get; set; }
+        public string? DefaultConnection { get; set; }
     }
 }

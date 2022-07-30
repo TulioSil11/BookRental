@@ -49,3 +49,22 @@ C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\obj\Debu
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\bin\Debug\net5.0\RestSharp.dll
 C:\Users\thudi\OneDrive\Área de Trabalho\Estudos\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.CopyComplete
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.AssemblyReference.cache
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.AssemblyInfoInputs.cache
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.AssemblyInfo.cs
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.CoreCompileInputs.cache
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.dll
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\refint\BookRental.dll
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.pdb
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.exe
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.deps.json
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.runtimeconfig.json
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.runtimeconfig.dev.json
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.dll
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\BookRental.pdb
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Tulio\Downloads\BookRental\BookRental\bin\Debug\net5.0\RestSharp.dll
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.csproj.CopyComplete
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\BookRental.genruntimeconfig.cache
+C:\Users\Tulio\Downloads\BookRental\BookRental\obj\Debug\net5.0\ref\BookRental.dll

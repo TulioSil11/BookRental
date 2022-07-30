@@ -2,6 +2,7 @@
 
 using BookRental.Entities;
 using BookRental.Operations.Services;
+using BookRental.Utilies;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -12,29 +13,17 @@ namespace BookRental.Operations
 {
     public class RegisterANewUser
     {
-        public static bool Register()
+        public static async Task<bool>  Register()
         {
 
             User Informations = TakeTheInforationsOfUserRegister.TakeInformations();
-            bool validateInformation = ValidateInformationForRegister.ValidateInformations(Informations);
 
-            if (!validateInformation)
-            {
-                Console.WriteLine("\nOuve um error com o cadastro do usuario.\n");
+            InformationsOfRegisterToReturnDto register = await RegisterUserInDataBase.Register(Informations);
 
-                Register();
-            }
+            Console.Clear();
+            Console.WriteLine(register.Mensage);
 
-           string date = Informations.DateOfBirth.ToString("dd/MM/yyyy");
-
-            var result = RegisterUserInDataBase.Register(Informations).ToString();
-            if (result == "true");
-            {
-                return true;
-            }
-            
-                return false;
-            
+            return register.StatusOfRegister;            
 
         }
     }

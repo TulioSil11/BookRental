@@ -11,9 +11,9 @@ namespace BookRental.Operations
 {
     public static class RegisterUserInDataBase
     {
-        public static async Task<bool> Register(User user)
+        public static async Task<InformationsOfRegisterToReturnDto> Register(User user)
         {
-             bool autenticacao = false;
+             InformationsOfRegisterToReturnDto autenticacao = new InformationsOfRegisterToReturnDto();
             try
             {
                 using (var restCliente = new RestClient())
@@ -21,24 +21,28 @@ namespace BookRental.Operations
                     var requisicao = new RestRequest($"https://localhost:7279/api/User?Name={user.Name}&DateOfBirth={user.DateOfBirth.ToString("dd/MM/yyyy")}&Email={user.Email}&Telefhone={user.Telefhone}&Password={user.Password}", Method.Post);
 
                     var resposta = await restCliente.ExecuteAsync(requisicao);
-
-                    switch (resposta.Content)
+                    switch (resposta.StatusCode)
                     {
-                        case "true":
-                            autenticacao = true;
+                        case System.Net.HttpStatusCode.OK:
+                            autenticacao =  JsonConvert.DeserializeObject<InformationsOfRegisterToReturnDto>(resposta.Content);
                             break;
 
                         default:
-                            Console.WriteLine("Ouve um error com o cadastro do usuario."); ;
+                            autenticacao.StatusOfRegister = false;
+                            Console.Clear();
+                            autenticacao.Mensage = "It was not possible to register. Try again later.";
                             break;
                     }
 
                 }
             }
-            catch (Exception ex)
+            catch(Exception)
             {
-            
+                autenticacao.StatusOfRegister = false;
+                autenticacao.Mensage = "An error has occurred";
             }
+
+            
             return autenticacao;
         }
     }
