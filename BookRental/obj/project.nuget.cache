@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ES0r53z3GEL/PtWIQ+ueftDSm9spd5VDvls+OBXUNZhUcxxXmG+hs95upiil5ejJSKbsd1F48+LR9osQmxCuJw==",
+  "dgSpecHash": "Bkk5ax99RUTK7/hMOthDIvC9cARG7HtZx3a0EFmR6oHimXjbY/kCxlztI+SJnZhUkEAO3mJ7WOlwgv/czFRQ0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tulio\\Downloads\\BookRental\\BookRental\\BookRental.csproj",
+  "projectFilePath": "C:\\Users\\thudi\\OneDrive\\Área de Trabalho\\Estudos\\BookRental\\BookRental\\BookRental.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tulio\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Tulio\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
-    "C:\\Users\\Tulio\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
+    "C:\\Users\\thudi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\thudi\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
+    "C:\\Users\\thudi\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

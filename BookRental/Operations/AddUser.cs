@@ -23,7 +23,7 @@ namespace BookRental.Operations
             Console.Clear();
             Console.WriteLine(register.Mensage);
 
-            return register.StatusOfRegister;            
+            return register.Status;            
 
         }
     }

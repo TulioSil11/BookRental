@@ -18,11 +18,11 @@ namespace BookRental.Repository
             _connection = _config.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<InformationsOfRegisterToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        public async Task<InformationsToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            InformationsOfRegisterToReturnDto result = new InformationsOfRegisterToReturnDto();
+            InformationsToReturnDto result = new InformationsToReturnDto();
 
-            result.StatusOfRegister = false;
+            result.Status = false;
 
             try
             {
@@ -37,11 +37,11 @@ namespace BookRental.Repository
 
                     if (InsertCnpj != null)
                     {
-                        result.StatusOfRegister = true;
+                        result.Status = true;
                         result.Mensage = "Successful registration.";
                         return result;
                     }
-                    result.StatusOfRegister = false;
+                    result.Status = false;
                     result.Mensage = "It was not possible to register. Try again later.";
 
                 }
@@ -49,11 +49,45 @@ namespace BookRental.Repository
             }
             catch (Exception)
             {
-                result.StatusOfRegister = false;
+                result.Status = false;
                 result.Mensage = "It was not possible to register. Try again later.";
             }
 
             return result;
+        }
+
+        public async Task<InformationsToReturnDto> SearchEmailAsync(string email)
+        {
+            InformationsToReturnDto SearchEmail = new InformationsToReturnDto();
+            try
+            {
+                using (var connexao = new MySqlConnection(_connection))
+                {
+                    connexao.Open();
+                    var stringBuilder = new System.Text.StringBuilder(84);
+                    stringBuilder.AppendLine("SELECT * FROM book_rental.users");
+                    stringBuilder.AppendLine($"WHERE EMAIL = '{email}'");
+
+                    var Result = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder.ToString());
+
+                    if(Result != null)
+                    {
+                        SearchEmail.Status = true;
+                        SearchEmail.Mensage = "Email found";
+                        return SearchEmail;
+                    }
+
+                    SearchEmail.Status = false;
+                    SearchEmail.Mensage = "Email not found";
+                    return SearchEmail;
+                }
+            }
+            catch (Exception ex)
+            {
+                SearchEmail.Status = false;
+                SearchEmail.Mensage = $"Error: {ex.Message}";
+                return SearchEmail;
+            }
         }
 
         public async Task<UserDto> SearchUserAsync(string email, string password)

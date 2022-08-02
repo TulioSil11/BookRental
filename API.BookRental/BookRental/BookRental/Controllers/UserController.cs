@@ -24,8 +24,17 @@ namespace BookRental.Controllers
             return result;
         }
 
+
+        [HttpGet("Email")]
+        public async Task<InformationsToReturnDto> SearchEmail(string email)
+        {
+            var result = await _userServico.SearchEmailAsync(email);
+
+            return result;
+        }
+
         [HttpPost]
-        public async Task<InformationsOfRegisterToReturnDto> InsertUser (string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        public async Task<InformationsToReturnDto> InsertUser (string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
             var result = await _userServico.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
 

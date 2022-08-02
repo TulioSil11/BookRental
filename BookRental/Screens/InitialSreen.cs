@@ -61,7 +61,7 @@ namespace BookRental.Screens
                 break;
 
                 case "R":
-                    RecuperePassword.Recupere();
+                    await RecuperePassword.Recupere();
                     Thread.Sleep(3000);
                     Console.Clear();
 

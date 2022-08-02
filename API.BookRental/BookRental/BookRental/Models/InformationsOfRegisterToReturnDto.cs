@@ -2,9 +2,9 @@ using Newtonsoft.Json;
 
 namespace BookRental.Models
 {
-    public class InformationsOfRegisterToReturnDto
+    public class InformationsToReturnDto
     {
-        public bool StatusOfRegister { get; set; }
+        public bool Status { get; set; }
         public string? Mensage { get; set; }
 
      }

@@ -17,12 +17,12 @@ namespace BookRental.Services
             _userRepository = userRepository;
         }
 
-        public async Task<InformationsOfRegisterToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        public async Task<InformationsToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
             
             var validatesInformations = ValidateInformationForRegister.ValidateInformations(Name, DateOfBirth, Email, Telefhone, Password);
 
-            if(!validatesInformations.StatusOfRegister)
+            if(!validatesInformations.Status)
             {
                 return validatesInformations;
             }
@@ -32,11 +32,16 @@ namespace BookRental.Services
             return await _userRepository.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
         }
 
-        public Task<UserDto> SearchUserAsync(string email, string password)
+        public async Task<UserDto> SearchUserAsync(string email, string password)
         {
             password = MD5Hash.CalculaHash(password);
 
-            return _userRepository.SearchUserAsync(email, password);
+            return await _userRepository.SearchUserAsync(email, password);
+        }
+
+        public async Task<InformationsToReturnDto> SearchEmailAsync(string email)
+        {
+            return await _userRepository.SearchEmailAsync(email);
         }
     }
 }
