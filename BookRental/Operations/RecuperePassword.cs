@@ -20,7 +20,7 @@ namespace BookRental.Operations
 
             Console.WriteLine(searchEmail.Mensage);
 
-            if(!searchEmail.Status)
+            if(!searchEmail.Informations.Status)
             {
                 Thread.Sleep(3000);
                 Console.Clear();
@@ -63,7 +63,13 @@ namespace BookRental.Operations
             
             if(NewKey != null)
             {
-                
+                var update = await UpdateUserInDataBase.Update(email, NewKey);
+                Console.WriteLine(update.Mensage);
+                Thread.Sleep(4000);
+                Console.Clear();
+
+                await InitialSreen.SreenLogin();
+
             }
 
             //chamar metodo para atualizar senha

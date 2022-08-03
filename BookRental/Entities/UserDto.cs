@@ -25,5 +25,17 @@ namespace BookRental.Models
 
         [JsonProperty("mensage")]
         public string Mensage { get; set; }
+
+        [JsonProperty("informations")]
+        public Informations Informations { get; set; }
+    }
+
+    public class Informations
+    {
+        [JsonProperty("status")]
+        public bool Status { get; set; }
+
+        [JsonProperty("mensage")]
+        public string Mensage { get; set; }
     }
 }

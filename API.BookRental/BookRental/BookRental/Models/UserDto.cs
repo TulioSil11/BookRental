@@ -4,6 +4,10 @@ namespace BookRental.Models
 {
     public class UserDto
     {
+        public UserDto()
+        {
+            Informations = new InformationsToReturnDto();
+        }
         public int ID_USER { get; set; }
 
         public string? NAME_USER { get; set; }
@@ -17,6 +21,8 @@ namespace BookRental.Models
         public bool? StatusOfSearch { get; set; }
 
         public string? Mensage { get; set; }
+
+        public InformationsToReturnDto Informations { get; set; }
 
     }
 }

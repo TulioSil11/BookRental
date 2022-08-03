@@ -1,4 +1,5 @@
 using BookRental.Entities;
+using BookRental.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -11,28 +12,26 @@ namespace BookRental.Operations
 {
     public static class UpdateUserInDataBase
     {
-        public static async Task<InformationsOfRegisterToReturnDto> Update(strinf email)
+        public static async Task<UserDto> Update(string Email, string Password)
         {
-            UserDto user = LoginInDataBase.LoginAsync(Email);
+            UserDto user =  await SearchEmail.Search(Email);
 
-            
-
-             InformationsOfRegisterToReturnDto autenticacao = new InformationsOfRegisterToReturnDto();
+            UserDto autenticacao = new UserDto();
             try
             {
                 using (var restCliente = new RestClient())
                 {
-                    var requisicao = new RestRequest($"https://localhost:7279/api/User?Name={user.Name}&DateOfBirth={user.DateOfBirth.ToString("dd/MM/yyyy")}&Email={user.Email}&Telefhone={user.Telefhone}&Password={user.Password}", Method.Put);
+                    var requisicao = new RestRequest($"https://localhost:7279/api/User?Name={user.NameOfUser}&DateOfBirth={user.DateOfBirth}&Email={Email}&Telefhone={user.Telefhone}&Password={Password}", Method.Put);
 
                     var resposta = await restCliente.ExecuteAsync(requisicao);
                     switch (resposta.StatusCode)
                     {
                         case System.Net.HttpStatusCode.OK:
-                            autenticacao =  JsonConvert.DeserializeObject<InformationsOfRegisterToReturnDto>(resposta.Content);
+                            autenticacao =  JsonConvert.DeserializeObject<UserDto>(resposta.Content);
                             break;
 
                         default:
-                            autenticacao.Status = false;
+                            autenticacao.Informations.Status = false;
                             Console.Clear();
                             autenticacao.Mensage = "It was not possible to register. Try again later.";
                             break;
@@ -42,7 +41,7 @@ namespace BookRental.Operations
             }
             catch(Exception)
             {
-                autenticacao.Status = false;
+                autenticacao.Informations.Status = false;
                 autenticacao.Mensage = "An error has occurred";
             }
 

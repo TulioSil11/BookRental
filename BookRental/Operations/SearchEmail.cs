@@ -1,4 +1,5 @@
 ﻿using BookRental.Entities;
+using BookRental.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -11,24 +12,24 @@ namespace BookRental.Operations
 {
     public static class SearchEmail
     {
-        public static async Task<InformationsOfRegisterToReturnDto> Search (string email)
+        public static async Task<UserDto> Search (string email)
         {
-            InformationsOfRegisterToReturnDto autenticacao = new InformationsOfRegisterToReturnDto();
+            UserDto autenticacao = new UserDto();
             try
             {
                 using (var restCliente = new RestClient())
                 {
-                    var requisicao = new RestRequest($"https://localhost:7279/api/User/Email?email={email}", Method.Get);
+                    var requisicao = new RestRequest($"https://localhost:7279/api/User?email={email}", Method.Get);
 
                     var resposta = await restCliente.ExecuteAsync(requisicao);
                     switch (resposta.StatusCode)
                     {
                         case System.Net.HttpStatusCode.OK:
-                            autenticacao = JsonConvert.DeserializeObject<InformationsOfRegisterToReturnDto>(resposta.Content);
+                            autenticacao = JsonConvert.DeserializeObject<UserDto>(resposta.Content);
                             break;
 
                         default:
-                            autenticacao.Status = false;
+                            autenticacao.Informations.Status = false;
                             Console.Clear();
                             autenticacao.Mensage = "It was not possible to search email. Try again later.";
                             break;
@@ -38,7 +39,7 @@ namespace BookRental.Operations
             }
             catch (Exception)
             {
-                autenticacao.Status = false;
+                autenticacao.Informations.Status = false;
                 autenticacao.Mensage = "An error has occurred";
             }
 

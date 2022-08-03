@@ -56,40 +56,6 @@ namespace BookRental.Repository
             return result;
         }
 
-        public async Task<InformationsToReturnDto> SearchEmailAsync(string email)
-        {
-            InformationsToReturnDto SearchEmail = new InformationsToReturnDto();
-            try
-            {
-                using (var connexao = new MySqlConnection(_connection))
-                {
-                    connexao.Open();
-                    var stringBuilder = new System.Text.StringBuilder(84);
-                    stringBuilder.AppendLine("SELECT * FROM book_rental.users");
-                    stringBuilder.AppendLine($"WHERE EMAIL = '{email}'");
-
-                    var Result = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder.ToString());
-
-                    if(Result != null)
-                    {
-                        SearchEmail.Status = true;
-                        SearchEmail.Mensage = "Email found";
-                        return SearchEmail;
-                    }
-
-                    SearchEmail.Status = false;
-                    SearchEmail.Mensage = "Email not found";
-                    return SearchEmail;
-                }
-            }
-            catch (Exception ex)
-            {
-                SearchEmail.Status = false;
-                SearchEmail.Mensage = $"Error: {ex.Message}";
-                return SearchEmail;
-            }
-        }
-
         public async Task<UserDto> SearchUserAsync(string email)
         {
             UserDto SearchEmail = new UserDto();
@@ -104,15 +70,21 @@ namespace BookRental.Repository
 
                     SearchEmail = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder.ToString());
 
-                    
-                    return SearchEmail;
-
+                    if (SearchEmail != null)
+                    {
+                        SearchEmail.Informations.Status = true;
+                        SearchEmail.Informations.Mensage = "Usuario found";
+                        return SearchEmail;
+                    }
+                    SearchEmail = new UserDto();
+                    SearchEmail.Informations = new InformationsToReturnDto();
+                    SearchEmail.Informations.Mensage =  "Usuario not found";
                 }
 
             }
             catch (Exception)
             {
-                Console.WriteLine("An error occurred while entering the user");
+                SearchEmail.Informations.Mensage = "An error occurred while entering the user";
             }
 
             return SearchEmail;

@@ -6,12 +6,12 @@ using BookRental.Utilies;
 
 namespace BookRental.Services
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
         private readonly ILogger<UserService> _logger;
         private readonly IUserRepository _userRepository;
 
-        public UserService (ILogger<UserService> logger, IUserRepository userRepository)
+        public UserService(ILogger<UserService> logger, IUserRepository userRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
@@ -19,10 +19,10 @@ namespace BookRental.Services
 
         public async Task<InformationsToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            
+
             var validatesInformations = ValidateInformationForRegister.ValidateInformations(Name, DateOfBirth, Email, Telefhone, Password);
 
-            if(!validatesInformations.Status)
+            if (!validatesInformations.Status)
             {
                 return validatesInformations;
             }
@@ -44,16 +44,12 @@ namespace BookRental.Services
             return await _userRepository.LoginAsync(email, password);
         }
 
-        public async Task<InformationsToReturnDto> SearchEmailAsync(string email)
+        public async Task<InformationsToReturnDto> UpdateUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
         {
-            return await _userRepository.SearchEmailAsync(email);
-        }
-
-        public async Task<InformationsToReturnDto> UpdateUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password){
 
             var validatesInformations = ValidateInformationForRegister.ValidateInformations(Name, DateOfBirth, Email, Telefhone, Password);
 
-            if(!validatesInformations.Status)
+            if (!validatesInformations.Status)
             {
                 return validatesInformations;
             }
