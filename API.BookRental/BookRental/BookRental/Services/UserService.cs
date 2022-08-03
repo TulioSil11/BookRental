@@ -32,16 +32,38 @@ namespace BookRental.Services
             return await _userRepository.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
         }
 
-        public async Task<UserDto> SearchUserAsync(string email, string password)
+        public async Task<UserDto> SearchUserAsync(string email)
+        {
+            return await _userRepository.SearchUserAsync(email);
+        }
+
+        public async Task<UserDto> LoginAsync(string email, string password)
         {
             password = MD5Hash.CalculaHash(password);
 
-            return await _userRepository.SearchUserAsync(email, password);
+            return await _userRepository.LoginAsync(email, password);
         }
 
         public async Task<InformationsToReturnDto> SearchEmailAsync(string email)
         {
             return await _userRepository.SearchEmailAsync(email);
         }
+
+        public async Task<InformationsToReturnDto> UpdateUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password){
+
+            var validatesInformations = ValidateInformationForRegister.ValidateInformations(Name, DateOfBirth, Email, Telefhone, Password);
+
+            if(!validatesInformations.Status)
+            {
+                return validatesInformations;
+            }
+
+            Password = MD5Hash.CalculaHash(Password);
+
+            return await _userRepository.UpdateUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
+
+
+        }
+
     }
 }

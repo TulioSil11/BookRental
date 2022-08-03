@@ -60,6 +60,11 @@ namespace BookRental.Operations
 
             Console.Write("Enter your new password: ");
             string NewKey = Console.ReadLine();
+            
+            if(NewKey != null)
+            {
+                
+            }
 
             //chamar metodo para atualizar senha
         }

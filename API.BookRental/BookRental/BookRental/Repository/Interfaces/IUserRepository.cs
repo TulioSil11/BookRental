@@ -6,6 +6,11 @@ namespace BookRental.Repository.Interfaces
     {
         Task<InformationsToReturnDto> SearchEmailAsync(string email);
         Task<InformationsToReturnDto> InsertUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password);
-        Task<UserDto> SearchUserAsync(string email, string password);
+        Task<UserDto> SearchUserAsync(string email);
+
+        Task<UserDto> LoginAsync(string email, string password);
+
+        Task<InformationsToReturnDto> UpdateUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password);
+
     }
 }

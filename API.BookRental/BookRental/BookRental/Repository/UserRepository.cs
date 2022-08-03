@@ -90,7 +90,35 @@ namespace BookRental.Repository
             }
         }
 
-        public async Task<UserDto> SearchUserAsync(string email, string password)
+        public async Task<UserDto> SearchUserAsync(string email)
+        {
+            UserDto SearchEmail = new UserDto();
+            try
+            {
+                using (var connexao = new MySqlConnection(_connection))
+                {
+                    connexao.Open();
+                    var stringBuilder = new System.Text.StringBuilder(84);
+                    stringBuilder.AppendLine("SELECT * FROM book_rental.users");
+                    stringBuilder.AppendLine($"WHERE EMAIL = '{email}'");
+
+                    SearchEmail = await connexao.QueryFirstOrDefaultAsync<UserDto>(stringBuilder.ToString());
+
+                    
+                    return SearchEmail;
+
+                }
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An error occurred while entering the user");
+            }
+
+            return SearchEmail;
+        }
+
+         public async Task<UserDto> LoginAsync(string email, string password)
         {
             UserDto SearchEmail = new UserDto();
             UserDto Result = new UserDto();
@@ -141,5 +169,45 @@ namespace BookRental.Repository
 
             return Result;
         }
+    
+        public async Task<InformationsToReturnDto> UpdateUserAsync(string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        {
+             InformationsToReturnDto result = new InformationsToReturnDto();
+
+            result.Status = false;
+
+            try
+            {
+                using (var connexao = new MySqlConnection(_connection))
+                {
+                    connexao.Open();
+                    var stringBuilder = new System.Text.StringBuilder();
+                    stringBuilder.AppendLine($"UPDATE BOOK_RENTAL.USERS SET NAME_USER = '{Name}',EMAIL = '{Email}', DATE_OF_BIRTH = '{DateOfBirth}',TELEFHONE = '{Telefhone}',PASSWORD = '{Password}'");
+                    stringBuilder.AppendLine($"WHERE EMAIL = '{Email}';");
+                
+
+                    var InsertCnpj = await connexao.QueryAsync<UserDto>(stringBuilder.ToString());
+
+                    if (InsertCnpj != null)
+                    {
+                        result.Status = true;
+                        result.Mensage = "Successful registration.";
+                        return result;
+                    }
+                    result.Status = false;
+                    result.Mensage = "It was not possible to register. Try again later.";
+
+                }
+
+            }
+            catch (Exception)
+            {
+                result.Status = false;
+                result.Mensage = "It was not possible to register. Try again later.";
+            }
+
+            return result;
+        }
+
     }
 }

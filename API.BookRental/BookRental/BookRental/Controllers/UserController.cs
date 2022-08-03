@@ -17,9 +17,17 @@ namespace BookRental.Controllers
 
 
         [HttpGet]
-        public async Task<UserDto> SearchUser(string email, string password)
+        public async Task<UserDto> SearchUser(string email)
         {
-            var result = await _userServico.SearchUserAsync(email, password);
+            var result = await _userServico.SearchUserAsync(email);
+
+            return result;
+        }
+
+        [HttpGet("Login")]
+        public async Task<UserDto> Login(string email, string password)
+        {
+            var result = await _userServico.LoginAsync(email, password);
 
             return result;
         }
@@ -38,6 +46,13 @@ namespace BookRental.Controllers
         {
             var result = await _userServico.InsertUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
 
+            return result;
+        }
+
+        [HttpPut]
+        public async Task<InformationsToReturnDto> UpdateUser (string Name, string DateOfBirth, string Email, string Telefhone, string Password)
+        {
+            var result = await _userServico.UpdateUserAsync(Name, DateOfBirth, Email, Telefhone, Password);
             return result;
         }
     }

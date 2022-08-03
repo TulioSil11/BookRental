@@ -17,7 +17,7 @@ namespace BookRental.Operations
             {
                 using (var restCliente = new RestClient())
                 {
-                    var requisicao = new RestRequest($"https://localhost:7279/api/User?email={Email}&password={Password}", Method.Get);
+                    var requisicao = new RestRequest($"https://localhost:7279/api/User/Login?email={Email}&password={Password}", Method.Get);
 
                     var resposta =  await restCliente.ExecuteAsync(requisicao); 
 
